@@ -1,6 +1,9 @@
 package com.gras.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.sql.Timestamp;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LoanDto {
     public String receivedTime;
