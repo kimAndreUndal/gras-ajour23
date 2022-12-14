@@ -1,9 +1,12 @@
 package com.gras.dto;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Schema(name = "Customer", description = "Customer representation of a customer as defined in the specification")
 public class CustomerDto {
     public String customerID;
     private List<LoanTypeDto> loanTypes = new ArrayList<>();

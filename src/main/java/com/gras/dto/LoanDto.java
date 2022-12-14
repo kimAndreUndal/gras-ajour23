@@ -1,9 +1,10 @@
 package com.gras.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.sql.Timestamp;
-
+@Schema(name = "Loan", description = "Loan representing a customer loan as defined in the specification")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LoanDto {
     public String receivedTime;
