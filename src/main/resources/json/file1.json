@@ -1,0 +1,21 @@
+{
+    "providerID": "9908:982793386",
+    "posttype": "push",
+    "customers": [
+        {
+            "customerID": "28095229133",
+            "financialInstitutionID": "982793386",
+            "loans": [
+                {
+                    "interestBearingBalance": 0,
+                    "nonInterestBearingBalance": 1158685,
+                    "loanType": "chargeCard",
+                    "timeStamp": "2022-12-15T07:50:15.323997Z",
+                    "accountID": "348881145",
+                    "accountName": "Eurocard Gold",
+                    "coBorrower": 0
+                }
+            ]
+        }
+    ]
+}

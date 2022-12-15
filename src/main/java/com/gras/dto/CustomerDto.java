@@ -15,6 +15,9 @@ public class CustomerDto {
         this.customerID = customerID;
     }
 
+    public CustomerDto() {
+    }
+
     public void addLoanToLoanType(String type, LoanDto loan) {
         List<LoanTypeDto> types = getLoanTypesOf(type);
 

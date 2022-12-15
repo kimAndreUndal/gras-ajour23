@@ -1,0 +1,25 @@
+{
+    "providerID": "9908:984150865",
+    "posttype": "push",
+    "customers": [
+        {
+            "customerID": "08048032835",
+            "financialInstitutionID": "984150865",
+            "loans": [
+                {
+                    "creditLimit": 0,
+                    "interestBearingBalance": 0,
+                    "nonInterestBearingBalance": 0,
+                    "nominalInterestRate": 0,
+                    "installmentCharges": 0,
+                    "installmentChargePeriod": "MONTHLY",
+                    "loanType": "creditFacility",
+                    "timeStamp": "2022-12-15T07:50:11Z",
+                    "accountID": "cf6Zbx6XCxd4fjIwkaUMig",
+                    "accountName": "SYNSAM KONTO",
+                    "coBorrower": 0
+                }
+            ]
+        }
+    ]
+}

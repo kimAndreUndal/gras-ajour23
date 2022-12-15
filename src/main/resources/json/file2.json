@@ -1,0 +1,25 @@
+{
+    "providerID": "9908:995610760",
+    "posttype": "push",
+    "customers": [
+        {
+            "customerID": "29087943168",
+            "financialInstitutionID": "995610760",
+            "loans": [
+                {
+                    "originalBalance": 24401600,
+                    "balance": 0,
+                    "terms": 0,
+                    "nominalInterestRate": 760,
+                    "installmentCharges": 0,
+                    "installmentChargePeriod": "MONTHLY",
+                    "loanType": "repaymentLoan",
+                    "timeStamp": "2022-12-15T07:50:12.677Z",
+                    "accountID": "188169",
+                    "accountName": "Kjøretøy",
+                    "coBorrower": 2
+                }
+            ]
+        }
+    ]
+}

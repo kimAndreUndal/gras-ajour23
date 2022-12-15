@@ -26,4 +26,6 @@ public class LoanDto {
     public String installmentChargePeriod;
     public String processedTime;
     public Integer selfProviderOfTheLoan;
+
+
 }
