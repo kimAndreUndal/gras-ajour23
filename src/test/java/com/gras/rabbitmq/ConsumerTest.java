@@ -1,7 +1,6 @@
 package com.gras.rabbitmq;
 
 import com.rabbitmq.client.*;
-import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -77,15 +76,15 @@ class ConsumerTest {
     void readFromQueue() throws NoSuchAlgorithmException, KeyManagementException, IOException {
 
         ConnectionFactory factory = new ConnectionFactory();
-        SslContextFactory context =
-        factory.setUsername(user);
+        SslContextFactory context = new
+
         factory.setPort(port);
         factory.setPassword(pass);
         factory.setRequestedHeartbeat(heartbeat);
         factory.setConnectionTimeout(timeout);
         factory.setVirtualHost(vhost);
         factory.setHost(hostname);
-        factory.setSslContextFactory();
+        factory.setSslContextFactory(context);
 
         try {
             Connection connection = factory.newConnection();
