@@ -16,16 +16,10 @@ public class LoanDto {
     public String terms;
     public String coBorrower;
     public String financialInstitutionID;
-    public String financialInstitutionEmail;
-    public String financialInstitutionPhone;
-    public String financialInstitutionUrl;
-    public String financialInstitutionName;
-    public String providerID;
     public String nominalInterestRate;
     public String installmentCharges;
     public String installmentChargePeriod;
     public String processedTime;
-    public Integer selfProviderOfTheLoan;
 
 
 }

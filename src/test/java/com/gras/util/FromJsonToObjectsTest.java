@@ -22,16 +22,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FromJsonToObjectsTest {
 
-    @Test
-    void testMethod() {
-        try{
-            JsonObject root = (JsonObject) JsonParser.parseReader(new FileReader("src/main/resources/json/file1.json"));
-            String json = new Gson().toJson(root);
-            String path = new JsonPath(json).get("providerID");
-            System.out.println(path);
-
-        } catch (FileNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-    }
+//    @Test
+//    void testMethod() {
+//        try{
+//            JsonObject root = (JsonObject) JsonParser.parseReader(new FileReader("src/main/resources/json/file1.json"));
+//            String json = new Gson().toJson(root);
+//            String path = new JsonPath(json).get("providerID");
+//
+//
+//        } catch (FileNotFoundException e){
+//            System.out.println(e.getMessage());
+//        }
+//    }
 }

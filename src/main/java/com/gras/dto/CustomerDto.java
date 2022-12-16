@@ -37,4 +37,12 @@ public class CustomerDto {
     public List<LoanTypeDto> getLoanTypes() {
         return loanTypes;
     }
+
+    @Override
+    public String toString() {
+        return "CustomerDto{" +
+                "customerID='" + customerID + '\'' +
+                ", loanTypes=" + loanTypes +
+                '}';
+    }
 }

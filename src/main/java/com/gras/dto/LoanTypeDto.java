@@ -1,6 +1,7 @@
 package com.gras.dto;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 @Schema(name = "LoanType", description = "Loans grouped by loantype")
@@ -15,5 +16,13 @@ public class LoanTypeDto {
 
     void addLoan(LoanDto loanDto) {
         loans.add(loanDto);
+    }
+
+    @Override
+    public String toString() {
+        return "LoanTypeDto{" +
+                "type='" + type + '\'' +
+                ", loans=" + loans.toString() +
+                '}';
     }
 }
