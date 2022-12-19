@@ -7,7 +7,7 @@
             "financialInstitutionID": "984150865",
             "loans": [
                 {
-                    "creditLimit": 0,
+                    "creditLimit": 100234,
                     "interestBearingBalance": 0,
                     "nonInterestBearingBalance": 0,
                     "nominalInterestRate": 0,
