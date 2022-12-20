@@ -135,7 +135,8 @@ class ConsumerTest{
                     System.out.println(loanDto.toString());
                 }
             };
-            channel.basicConsume("queue", true, deliverCallback, consumerTag -> {});
+            channel.basicConsume("queue", true, deliverCallback, consumerTag -> {
+            });
         } catch (IOException | TimeoutException e) {
             logger.error("readFromQueue() error: " + e.getMessage());
         }

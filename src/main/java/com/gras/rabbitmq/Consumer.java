@@ -10,11 +10,12 @@ import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.beans.JavaBean;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
-
+@ApplicationScoped
 public class Consumer {
     private static final Logger logger = LoggerFactory.getLogger(Consumer.class);
     @ConfigProperty(name = "rabbitmq.user")
@@ -48,6 +49,7 @@ public class Consumer {
 
     @Inject
     HandleMessages handleMessages;
+
     public void readFromQueue(){
 
         ConnectionFactory factory = new ConnectionFactory();
@@ -72,7 +74,7 @@ public class Consumer {
             Channel channel = connection.createChannel();
 
             DeliverCallback deliverCallback = (consumerTag, message) ->{
-                String body = new String(message.getBody(), StandardCharsets.UTF_8);
+
 
 //                ObjectMapper objectMapper = new ObjectMapper();
 //                objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
@@ -80,7 +82,7 @@ public class Consumer {
 //                String providerID = node.get("providerID").asText();
 //                String postType = node.get("posttype").asText();
 //                DocumentDto document = objectMapper.readValue(body, new TypeReference<>() {});
-                handleMessages.handleMessage(body, channel);
+                handleMessages.handleMessage(message, channel);
 
             };
             channel.basicConsume("queue", true, deliverCallback, consumerTag -> {});

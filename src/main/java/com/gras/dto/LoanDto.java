@@ -41,8 +41,10 @@ public class LoanDto {
     public String installmentChargePeriod;
     @JsonProperty("processedTime")
     public String processedTime;
-    @JsonProperty("accountName")
 
+    @JsonProperty("effectiveInterestRate")
+    public String effectiveInterestRate;
+    @JsonProperty("accountName")
     public String accountName;
 
     @Override

@@ -4,6 +4,7 @@ import io.agroal.api.AgroalDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+@ApplicationScoped
 public class DatabaseHandler {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseHandler.class);
 
@@ -19,7 +21,7 @@ public class DatabaseHandler {
     AgroalDataSource dataSource;
 
 
-    public boolean insertIntoGrasLoan(String customerId,
+    public int insertIntoGrasLoan(String customerId,
                                       String providerId,
                                       String financialInstitutionId,
                                       String loanType,
@@ -39,7 +41,7 @@ public class DatabaseHandler {
                                       Timestamp processedTime,
                                       String processedTimeText
     ){
-        boolean ok = true;
+        int ok = 1;
         String sql ="INSERT INTO gras.loan(\n" +
                 "customer_id, provider_id, financial_institution_id, loan_type, received_time, account_id, account_name, original_balance, balance, terms,\n" +
                 "\tinterest_bearing_balance, non_interest_bearing_balance, effective_interest_rate, nominal_interest_rate, installment_charges,\n" +
@@ -89,7 +91,7 @@ public class DatabaseHandler {
 
         }catch (SQLException e){
             logger.error("insertIntoGrasLoan: " + e.getMessage());
-            ok = false;
+            ok = 0;
         }
         return ok;
     }
@@ -210,13 +212,13 @@ public class DatabaseHandler {
         return ok;
     }
 
-    public int deleteLoan(String customerId,
+    public boolean deleteLoan(String customerId,
                           String providerId,
                           String financialInstitutionId,
                           String loanType,
                           String accountId,
                           Timestamp processedTime) {
-        int ok = 1;
+        boolean ok = true;
         String sql =
                 "DELETE FROM gras.loan " +
                         "WHERE (gras.loan.customer_id =? " +
@@ -235,13 +237,13 @@ public class DatabaseHandler {
             pstm.executeUpdate();
         }catch (SQLException e){
             logger.error("deleteLoan: " + e.getMessage());
-            ok = 0;
+            ok = false;
         }
         return ok;
     }
 
-    public int deleteCustomersForFi(String customerId, String providerId, String financialInstitutionId){
-        int ok = 1;
+    public boolean deleteCustomersForFi(String customerId, String providerId, String financialInstitutionId){
+        boolean ok = true;
         String sql =
                 "DELETE FROM gras.loan " +
                         "WHERE customer_id= ? " +
@@ -254,7 +256,7 @@ public class DatabaseHandler {
             pstm.executeUpdate();
         }catch (SQLException e){
             logger.error("deleteCustomersForFi: " + e.getMessage());
-            ok = 0;
+            ok = false;
         }
         return  ok;
     }

@@ -6,9 +6,12 @@ import com.gras.dto.LoanDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.print.Doc;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Function;
-
+@ApplicationScoped
 public class MapFromJson {
     private static final Logger logger = LoggerFactory.getLogger(MapFromJson.class);
     public String getProviderID(DocumentDto documentDto){
@@ -18,13 +21,16 @@ public class MapFromJson {
         return documentDto.posttype;
     }
 
-    public String getCustomerID(CustomerDto customerDto){
-        return customerDto.customerID;
+    public Map<String, String>getCustomerDto(DocumentDto documentDto){
+        Map<String, String> map = new HashMap<>();
+        for (CustomerDto customer: documentDto.customers
+             ) {
+            map.put("customerID", customer.customerID);
+            map.put("financialInstitutionID", customer.financialInstitutionID);
+        }
+        return map;
     }
 
-    public String getFinancialInstitutionID(CustomerDto customerDto){
-        return customerDto.financialInstitutionID;
-    }
 
     public LoanDto getLoan(DocumentDto documentDto){
         LoanDto loanDto = new LoanDto();
@@ -44,6 +50,7 @@ public class MapFromJson {
             loanDto.originalBalance = mapToZeroIfNegative(loan.originalBalance);
             loanDto.interestBearingBalance = mapToZeroIfNegative(loan.interestBearingBalance);
             loanDto.nonInterestBearingBalance = mapToZeroIfNegative(loan.nonInterestBearingBalance);
+            loanDto.effectiveInterestRate = mapToZeroIfNegative(loan.effectiveInterestRate);
             loanDto.coBorrower = loan.coBorrower;
             loanDto.nominalInterestRate = loan.nominalInterestRate;
             loanDto.installmentCharges = loan.installmentCharges;
