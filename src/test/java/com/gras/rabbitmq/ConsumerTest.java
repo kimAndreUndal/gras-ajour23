@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -73,7 +74,6 @@ class ConsumerTest{
     int heartbeat;
 
 
-
     @Test
     @Order(1)
     void sendToQueue(){
@@ -117,7 +117,7 @@ class ConsumerTest{
 //                throw new RuntimeException(e);
 //            }
 //        });
-
+        HandleMessages handleMessages = new HandleMessages();
         try {
             Connection connection = factory.newConnection();
             Channel channel = connection.createChannel();
@@ -128,11 +128,14 @@ class ConsumerTest{
                 ObjectMapper objectMapper = new ObjectMapper();
                 DocumentDto document = objectMapper.readValue(body, new TypeReference<>() {});
 
-
                 for (CustomerDto customerDto: document.customers
                      ) {
                     LoanDto loanDto = publicLoanFields.apply(customerDto);
-                    System.out.println(loanDto.toString());
+                    if(handleMessages.handleMessage(message, channel)){
+                        System.out.println("it fucking works!!");
+                    }else{
+                        System.out.println("sad faces");
+                    }
                 }
             };
             channel.basicConsume("queue", true, deliverCallback, consumerTag -> {

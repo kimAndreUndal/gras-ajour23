@@ -5,7 +5,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Calendar;
+
 @Schema(name = "Loan", description = "Loan representing a customer loan as defined in the specification")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LoanDto {
@@ -14,8 +17,6 @@ public class LoanDto {
 
     @JsonProperty("loanType")
     public String loanType;
-    @JsonProperty("timeStamp")
-    public String receivedTime;
     @JsonProperty("originalBalance")
     public String originalBalance;
     @JsonProperty("interestBearingBalance")
@@ -26,6 +27,8 @@ public class LoanDto {
 
     @JsonProperty("creditLimit")
     public String creditLimit;
+
+    public String receivedTime;
     @JsonProperty("balance")
     public String balance;
 
@@ -39,8 +42,9 @@ public class LoanDto {
     public String installmentCharges;
     @JsonProperty("installmentChargePeriod")
     public String installmentChargePeriod;
-    @JsonProperty("processedTime")
+    @JsonProperty("timeStamp")
     public String processedTime;
+
 
     @JsonProperty("effectiveInterestRate")
     public String effectiveInterestRate;
@@ -52,7 +56,7 @@ public class LoanDto {
         return "LoanDto{" +
                 "accountID='" + accountID + '\'' +
                 ", loanType='" + loanType + '\'' +
-                ", receivedTime='" + receivedTime + '\'' +
+                ", processedTime='" + processedTime + '\'' +
                 ", originalBalance='" + originalBalance + '\'' +
                 ", interestBearingBalance='" + interestBearingBalance + '\'' +
                 ", nonInterestBearingBalance='" + nonInterestBearingBalance + '\'' +
