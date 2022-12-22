@@ -1,6 +1,6 @@
 {
     "providerID": "9908:984150865",
-    "posttype": "push",
+    "posttype": "batch",
     "customers": [
         {
             "customerID": "08048032835",
@@ -8,10 +8,10 @@
             "loans": [
                 {
                     "creditLimit": 100234,
-                    "interestBearingBalance": 0,
-                    "nonInterestBearingBalance": 0,
-                    "nominalInterestRate": 0,
-                    "installmentCharges": 0,
+                    "interestBearingBalance": 123,
+                    "nonInterestBearingBalance": 4,
+                    "nominalInterestRate": 1,
+                    "installmentCharges": 234234,
                     "installmentChargePeriod": "MONTHLY",
                     "loanType": "creditFacility",
                     "timeStamp": "2022-12-15T07:50:11Z",

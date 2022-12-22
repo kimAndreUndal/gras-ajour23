@@ -1,6 +1,6 @@
 {
     "providerID": "9908:995610760",
-    "posttype": "push",
+    "posttype": "batch",
     "customers": [
         {
             "customerID": "29087943168",

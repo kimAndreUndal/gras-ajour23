@@ -15,6 +15,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.sql.PreparedStatement;
 import java.sql.Timestamp;
 import java.text.ParseException;
 
@@ -49,17 +50,16 @@ public class HandleMessages {
             String loanType = loanDto.loanType;
             String accountID = loanDto.accountID;
             boolean rowsAffected = false;
-            System.out.println("org: "+loanDto.originalBalance);
             int deleted = 0;
 
 
                 boolean genAccountID = false;
-                if (postType.equals("batch") || postType.equals("push") && loanType == null){
-                    channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
-                }
-                if(postType.equals("push") && (accountID == null || accountID.isEmpty())){
-                    channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
-                }
+//                if (postType.equals("batch") || postType.equals("push") && loanType == null){
+//                    channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
+//                }
+//                if(postType.equals("push") && (accountID == null || accountID.isEmpty())){
+//                    channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
+//                }
                 if(postType.equals("batch") && (accountID==null || accountID.isEmpty())){
                     rowsAffected = databaseHandler.deleteCustomersForFi(customerID, providerID, financialInstitutionID);
                     genAccountID = true;
@@ -69,12 +69,10 @@ public class HandleMessages {
                         databaseHandler.insertOppdateringsLogg(providerID, financialInstitutionID);
                     }
                     String ownAccountID = "";
-
-                    assert loanType != null;
                     if(loanType.equals("creditFacility") &&
-                            (loanDto.creditLimit == null || Float.parseFloat(loanDto.creditLimit) == 0) &&
-                            (loanDto.interestBearingBalance == null || Float.parseFloat(loanDto.interestBearingBalance) == 0) &&
-                            (loanDto.nonInterestBearingBalance == null|| Float.parseFloat(loanDto.nonInterestBearingBalance) == 0) ){
+                            (loanDto.creditLimit == null || loanDto.creditLimit.equals("0")) &&
+                            (loanDto.interestBearingBalance == null || loanDto.interestBearingBalance.equals("0")) &&
+                            (loanDto.nonInterestBearingBalance == null|| loanDto.nonInterestBearingBalance.equals("0")) ){
                                 deleted = 1;
                                 rowsAffected = databaseHandler.
                                 deleteLoan(customerID, providerID, financialInstitutionID, loanType, accountID,  loanDto.processedTime);

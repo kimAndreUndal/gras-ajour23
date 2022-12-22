@@ -1,0 +1,77 @@
+{
+  "providerID": "9908:984150863",
+  "posttype": "batch",
+  "customers": [
+    {
+      "customerID": "82325537466",
+      "financialInstitutionID": "432153865",
+      "loans": [
+        {
+          "creditLimit": 0,
+          "interestBearingBalance": 0,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 0,
+          "installmentCharges": 0,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T03:12:02Z",
+          "accountID": "FDSArspnNqC70A",
+          "accountName": "BRUKSKONTO",
+          "coBorrower": 0
+        },
+        {
+          "creditLimit": 4567234,
+          "interestBearingBalance": 4567234,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 0,
+          "installmentCharges": 4500,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T07:21:32Z",
+          "accountID": "456FGsoKwcDKHzQ",
+          "accountName": "DNB",
+          "coBorrower": 0
+        },
+        {
+          "creditLimit": 200000455,
+          "interestBearingBalance": 200000455,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 2124,
+          "installmentCharges": 0,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T03:12:02Z",
+          "accountID": "00000Sfaddfsa",
+          "accountName": "RIK BRUKER",
+          "coBorrower": 0
+        },
+        {
+          "creditLimit": 1298608,
+          "interestBearingBalance": 1298608,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 2124,
+          "installmentCharges": 0,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T03:12:02Z",
+          "accountID": "d45765647sdfadw",
+          "accountName": "komplett_no",
+          "coBorrower": 1
+        },
+        {
+          "creditLimit": 123456,
+          "interestBearingBalance": 0,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 1590,
+          "installmentCharges": 4500,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "repaymentLoan",
+          "timeStamp": "2022-12-08T03:16:41Z",
+          "accountID": "0000dfsaFVD2tw9g",
+          "accountName": "SHELL_MASTERCARD",
+          "coBorrower": 0
+        }
+      ]
+    }
+  ]
+}

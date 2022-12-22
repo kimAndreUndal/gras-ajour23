@@ -1,0 +1,51 @@
+{
+  "providerID": "9908:984150864",
+  "posttype": "push",
+  "customers": [
+    {
+      "customerID": "16435534269",
+      "financialInstitutionID": "988150865",
+      "loans": [
+        {
+          "creditLimit": 1900400,
+          "interestBearingBalance": 1900400,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 2124,
+          "installmentCharges": 0,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "repaymentLoan",
+          "timeStamp": "2022-12-08T03:12:02Z",
+          "accountID": "vdfsSDFGHIKeerspnNqC70A",
+          "accountName": "MASTERCARD",
+          "coBorrower": 1
+        },
+        {
+          "creditLimit": 56342,
+          "interestBearingBalance": 56342,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 0,
+          "installmentCharges": 4500,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T07:21:32Z",
+          "accountID": "hfgDFGS43BsoKwcDKHzQ",
+          "accountName": "BOLIGLÅN",
+          "coBorrower": 0
+        },
+        {
+          "creditLimit": 38455,
+          "interestBearingBalance": 38455,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 2124,
+          "installmentCharges": 0,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T03:12:02Z",
+          "accountID": "xaY6DybBSWPMOpZ5FGSa",
+          "accountName": "FORBRUKSLÅN",
+          "coBorrower": 0
+        }
+      ]
+    }
+  ]
+}

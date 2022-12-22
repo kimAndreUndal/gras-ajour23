@@ -1,0 +1,77 @@
+{
+  "providerID": "9908:984150865",
+  "posttype": "push",
+  "customers": [
+    {
+      "customerID": "06035537269",
+      "financialInstitutionID": "984150865",
+      "loans": [
+        {
+          "creditLimit": 833400,
+          "interestBearingBalance": 833400,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 2124,
+          "installmentCharges": 0,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "repaymentLoan",
+          "timeStamp": "2022-12-08T03:12:02Z",
+          "accountID": "FsmrElMRIKeerspnNqC70A",
+          "accountName": "ellos_no",
+          "coBorrower": 0
+        },
+        {
+          "creditLimit": 0,
+          "interestBearingBalance": 0,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 0,
+          "installmentCharges": 4500,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "repaymentLoan",
+          "timeStamp": "2022-12-08T07:21:32Z",
+          "accountID": "xr8iogPhOrBsoKwcDKHzQ",
+          "accountName": "DYREKONTO",
+          "coBorrower": 0
+        },
+        {
+          "creditLimit": 1500455,
+          "interestBearingBalance": 1500455,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 2124,
+          "installmentCharges": 0,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T03:12:02Z",
+          "accountID": "xaY6DybBSWPMOpZHA2LuTQ",
+          "accountName": "jotex_no",
+          "coBorrower": 0
+        },
+        {
+          "creditLimit": 298608,
+          "interestBearingBalance": 298608,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 2124,
+          "installmentCharges": 0,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T03:12:02Z",
+          "accountID": "dg4ZILMJD7xvgCLph8Vdw",
+          "accountName": "lared_no",
+          "coBorrower": 0
+        },
+        {
+          "creditLimit": 1000000,
+          "interestBearingBalance": 999420,
+          "nonInterestBearingBalance": 0,
+          "nominalInterestRate": 1590,
+          "installmentCharges": 4500,
+          "installmentChargePeriod": "MONTHLY",
+          "loanType": "creditFacility",
+          "timeStamp": "2022-12-08T03:16:41Z",
+          "accountID": "Aeu7vmYhUVNNOnMYDZtw9g",
+          "accountName": "RESURS GOLD",
+          "coBorrower": 0
+        }
+      ]
+    }
+  ]
+}

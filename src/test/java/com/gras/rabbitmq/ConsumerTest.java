@@ -10,6 +10,7 @@ import com.google.gson.JsonParser;
 import com.gras.dto.CustomerDto;
 import com.gras.dto.DocumentDto;
 import com.gras.dto.LoanDto;
+import com.gras.util.Utils;
 import com.rabbitmq.client.*;
 import org.codehaus.groovy.transform.SourceURIASTTransformation;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -88,8 +89,8 @@ class ConsumerTest{
                 JsonObject object = root.getAsJsonObject();
                 message = object.toString();
                 Channel channel = conn.createChannel();
-                channel.queueDeclare("queue", false, false, false, null);
-                channel.basicPublish("", "queue", false, null, message.getBytes());
+                channel.queueDeclare("queue2", false, false, false, null);
+                channel.basicPublish("", "queue2", false, null, message.getBytes());
             }
 
             System.out.println();
@@ -102,13 +103,13 @@ class ConsumerTest{
     void readFromQueue() throws NoSuchAlgorithmException, KeyManagementException, IOException, CertificateException, KeyStoreException, UnrecoverableKeyException {
 
         ConnectionFactory factory = new ConnectionFactory();
-//        factory.setPort(port);
-//        factory.setUsername(user);
-//        factory.setPassword(pass);
-//        factory.setRequestedHeartbeat(heartbeat);
-//        factory.setConnectionTimeout(timeout);
-//        factory.setVirtualHost(vhost);
-//        factory.setHost(hostname);
+        factory.setPort(port);
+        factory.setUsername(user);
+        factory.setPassword(pass);
+        factory.setRequestedHeartbeat(heartbeat);
+        factory.setConnectionTimeout(timeout);
+        factory.setVirtualHost(vhost);
+        factory.setHost(hostname);
 //        factory.enableHostnameVerification();
 //        factory.setSslContextFactory(s -> {
 //            try {
@@ -124,21 +125,23 @@ class ConsumerTest{
 
             DeliverCallback deliverCallback = (consumerTag, message) ->{
                 String body = new String(message.getBody(), StandardCharsets.UTF_8);
-
+                Utils utils = new Utils();
                 ObjectMapper objectMapper = new ObjectMapper();
                 DocumentDto document = objectMapper.readValue(body, new TypeReference<>() {});
 
+
+                if(handleMessages.handleMessage(message, channel)){
+                    System.out.println("it fucking works!!");
+                }else{
+                    System.out.println("sad faces");
+                }
                 for (CustomerDto customerDto: document.customers
                      ) {
-                    LoanDto loanDto = publicLoanFields.apply(customerDto);
-                    if(handleMessages.handleMessage(message, channel)){
-                        System.out.println("it fucking works!!");
-                    }else{
-                        System.out.println("sad faces");
-                    }
+                    LoanDto loanDto1 = publicLoanFields.apply(customerDto);
+
                 }
             };
-            channel.basicConsume("queue", true, deliverCallback, consumerTag -> {
+            channel.basicConsume("queue2", true, deliverCallback, consumerTag -> {
             });
         } catch (IOException | TimeoutException e) {
             logger.error("readFromQueue() error: " + e.getMessage());
